@@ -1,0 +1,203 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@using ASM.Models
+@model List<ListMovieOutputModel>
+
+<div id="site-content">
+    <header class="site-header">
+        <div class="container">
+            <a href="index.html" id="branding">
+                <img src="~/Content/Image/logo.png" alt="" class="logo">
+                <div class="logo-copy">
+                    <h1 class="site-title">Company Name</h1>
+                    <small class="site-description">Tagline goes here</small>
+                </div>
+            </a> <!-- #branding -->
+
+            <div class="mobile-navigation"></div>
+        </div>
+    </header>
+    <main class="main-content">
+        <div class="container">
+            <div class="page">
+                <div class="row">
+                    <div class="col-md-9">
+                        <div class="slider">
+                            <ul class="slides">
+                                @{
+                                    foreach (var dt in Model)
+                                    {
+                                        <li onclick="Detail($(this))" data-id="@dt.ID">
+                                            <a href="#"><img class="img" src="@dt.Image" alt="Slide 1"></a>
+                                            <input type="hidden" class="name" value="@dt.Name" />
+                                            <input type="hidden" class="des" value="@dt.Des" />
+                                            <input type="hidden" class="release" value="@dt.ReleaseDate" />
+                                            <input type="hidden" class="rating" value="@dt.Rating" />
+                                            <input type="hidden" class="leght" value="@dt.Lenght" />
+                                        </li>
+                                    }
+                                }
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="row">
+                            @{
+                                int i = 0;
+                                foreach (var dt in Model)
+                                {
+                                    <div class="col-sm-6 col-md-12" onclick="Detail($(this))" data-id="@dt.ID">
+                                        <div class="latest-movie">
+                                            <a href="#"><img class="img" src="@dt.Image" alt="Slide 1"></a>
+                                            <input type="hidden" class="name" value="@dt.Name" />
+                                            <input type="hidden" class="des" value="@dt.Des" />
+                                            <input type="hidden" class="release" value="@dt.ReleaseDate" />
+                                            <input type="hidden" class="rating" value="@dt.Rating" />
+                                            <input type="hidden" class="leght" value="@dt.Lenght" />
+                                        </div>
+                                    </div>
+                                    i++;
+                                    if (i >= 3)
+                                    {
+                                        break;
+                                    }
+                                }
+                            }
+                        </div>
+                    </div>
+                </div> <!-- .row -->
+                <div class="row">
+                    @{
+                        foreach (var dt in Model)
+                        {
+                            <div class="col-sm-6 col-md-3" onclick="Detail($(this))" data-id="@dt.ID">
+                                <div class="latest-movie">
+                                    <a href="#"><img class="img" src="@dt.Image" alt="Slide 1"></a>
+                                    <input type="hidden" class="name" value="@dt.Name" />
+                                    <input type="hidden" class="des" value="@dt.Des" />
+                                    <input type="hidden" class="release" value="@dt.ReleaseDate" />
+                                    <input type="hidden" class="rating" value="@dt.Rating" />
+                                    <input type="hidden" class="leght" value="@dt.Lenght" />
+                                </div>
+                            </div>
+                        }
+                    }
+
+                </div> <!-- .row -->
+            </div>
+        </div> <!-- .container -->
+    </main>
+    <footer class="site-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-2">
+                    <div class="widget">
+                        <h3 class="widget-title">About Us</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quia tempore vitae mollitia nesciunt saepe cupiditate</p>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="widget">
+                        <h3 class="widget-title">Recent Review</h3>
+                        <ul class="no-bullet">
+                            <li><a href="#">Lorem ipsum dolor</a></li>
+                            <li><a href="#">Sit amet consecture</a></li>
+                            <li><a href="#">Dolorem respequem</a></li>
+                            <li><a href="#">Invenore veritae</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="widget">
+                        <h3 class="widget-title">Help Center</h3>
+                        <ul class="no-bullet">
+                            <li><a href="#">Lorem ipsum dolor</a></li>
+                            <li><a href="#">Sit amet consecture</a></li>
+                            <li><a href="#">Dolorem respequem</a></li>
+                            <li><a href="#">Invenore veritae</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="widget">
+                        <h3 class="widget-title">Join Us</h3>
+                        <ul class="no-bullet">
+                            <li><a href="#">Lorem ipsum dolor</a></li>
+                            <li><a href="#">Sit amet consecture</a></li>
+                            <li><a href="#">Dolorem respequem</a></li>
+                            <li><a href="#">Invenore veritae</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="widget">
+                        <h3 class="widget-title">Social Media</h3>
+                        <ul class="no-bullet">
+                            <li><a href="#">Facebook</a></li>
+                            <li><a href="#">Twitter</a></li>
+                            <li><a href="#">Google+</a></li>
+                            <li><a href="#">Pinterest</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="widget">
+                        <h3 class="widget-title">Newsletter</h3>
+                        <form action="#" class="subscribe-form">
+                            <input type="text" placeholder="Email Address">
+                        </form>
+                    </div>
+                </div>
+            </div> <!-- .row -->
+
+            <div class="colophon">Copyright 2014 Company name, Designed by Themezy. All rights reserved</div>
+        </div> <!-- .container -->
+
+    </footer>
+</div>
+<!-- Default snippet for navigation -->
+<!-- The Modal -->
+<div class="modal fade" id="myModal">
+    <div class="modal-dialog mw-100 w-100">
+        <div class="modal-content">
+
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h4 class="modal-title">Modal Heading</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+
+            <main class="main-content">
+                <div class="container">
+                    <div class="page">
+
+                        <div class="content">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <figure class="movie-poster"><img alt="#" id="img" ></figure>
+                                </div>
+                                <div class="col-md-6">
+                                    <h2 class="movie-title" id="name"></h2>
+                                    <div class="movie-summary">
+                                        <p id="des">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. </p>
+
+                                    </div>
+                                    <ul class="movie-meta">
+                                        <li>
+                                            <strong>Rating:</strong>
+                                            <div class="star-rating" title="Rated 4.00 out of 5"><span style="width:80%"><strong class="rating">4.00</strong> out of 5</span></div>
+                                        </li>
+                                        <li><strong>Length:</strong> <p id="lenght"></p></li>
+                                        <li><strong>Premiere:</strong><p id="date"></p></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div> <!-- .container -->
+            </main>
+
+        </div>
+    </div>
+</div>

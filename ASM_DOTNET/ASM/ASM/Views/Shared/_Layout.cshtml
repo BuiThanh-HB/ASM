@@ -1,0 +1,35 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+
+    @RenderBody()
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+    <script type="text/javascript">
+        function Detail(thiss) {
+            var img = $(thiss).find(".img").attr("src");
+            var name = $(thiss).find(".name").val();
+            var des = $(thiss).find(".des").val();
+            var date = $(thiss).find(".release").val();
+            var lenght = $(thiss).find(".leght").val();
+            var rate = $(thiss).find(".rating").val();
+            $('#img').attr("src", img);
+            $('#name').text(name);
+            $('#lenght').text(lenght);
+            $('#date').text(date);
+            $('#des').text(des)
+            $('#myModal').modal('show');
+        }
+    </script>
+</body>
+</html>
